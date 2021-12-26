@@ -23,15 +23,14 @@
     "rules": {
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": 0,
         "react/display-name": "off",
         "react/react-in-jsx-scope":"off",
-        "quotes": ["error", "single"],
-        "indent": ["error", 2]
+        "quotes": ["error", "single"]
     },
-
     "overrides": [
         {
-          "files": ["*.ts"],
+          "files": ["**/*.ts?(x)"],
           "rules": {
             "@typescript-eslint/explicit-module-boundary-types": ["off"]
           }

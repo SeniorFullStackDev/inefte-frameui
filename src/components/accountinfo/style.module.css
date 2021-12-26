@@ -1,0 +1,43 @@
+.miniWrapper {
+  color: white;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;    
+  margin: 10px 30px;
+  padding: 20px;    
+}
+
+.miniWrapper .body {        
+  text-align: left;
+  margin-left: 20px;
+  padding-left: 10px;
+  flex: 1;
+}
+
+.miniWrapper .body p {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.miniWrapper .body span {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.miniWrapper .body h3{
+  margin: 0px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.miniWrapper .badge {
+  background-color: white;
+  color: #06B5DD;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.miniWrapper .buttons {
+  align-self: flex-end;
+}
