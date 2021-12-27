@@ -119,6 +119,13 @@ type GalleryItemData = {
   userTokenType: 'giphy' | 'topshotToken'
 };
 
+type ObjectFitType = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
+
+type GalleryItemProps = {
+  itemData: GalleryItemData, 
+  sizeNpos: string,
+};
+
 type GalleryProps = {
   data: GalleryData[],
   duration: number,

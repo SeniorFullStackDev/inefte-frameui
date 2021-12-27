@@ -1,52 +1,52 @@
-// import AccountInfo from 'components/accountinfo';
+import SystemBar from 'components/systembar';
+import { useEffect, useState } from 'react';
+import AccountInfo from './accountinfo';
+// import { useSwipeable } from 'react-swipeable';
+import styles from './carousel.module.css';
+import GalleryItem from './GalleryItem';
 
-type ItemProps = {
-  itemData: any
-};
+function CarouselGallery ({data, duration, sizeNpos} : GalleryProps) {  
+  const [currentPosition, setCurrentPosition] = useState(0);
+  const [toggleSystembar, setToggleSystembar] = useState(false);
 
-function CarouselItem({itemData}: ItemProps) {
-  const type = itemData.userTokenType;
-  
-  if (type == 'giphy') { 
-    const { giphyData } = itemData.userTokenId;
-    const { user, images } = giphyData;
-    
-    return (
-      <div>
-        <img src={images.original.url}/>
-        {/* <AccountInfo profile_url={user.profile_url} display_name={user.display_name} username={user.username} ntf_token=''/> */}
-      </div>
-    );
-  } 
-  // else if (type == 'erc1155UserTokens') {
+  const nextPage = () => {
+    const lastPosition = data.length - 1;
+    const nextPosition = currentPosition == lastPosition ? 0 : currentPosition + 1;
+    setCurrentPosition(nextPosition);
+  };
 
-  // } 
-  // else if (type == 'erc721UserTokens') {
+  const prevPage = () => {
+    const lastPosition = data.length - 1;
+    const nextPosition = currentPosition == 0 ? lastPosition : currentPosition - 1;
+    setCurrentPosition(nextPosition);
+  };
 
-  // } 
-  else if (type == 'topshotToken') {
-    //
-  } 
-  // else if (type == 'opensea') {
+  const onItemClick = () => {
+    // nextPage();
+  };
 
-  // }
+  const onToggleSystemBar = () => {
+    setToggleSystembar(!toggleSystembar);
+  };
 
-  return <div></div>;
-}
+  useEffect(() => {
+    const timeout = setTimeout(nextPage, duration * 1000);
+    return () => clearTimeout(timeout);
+  }, [currentPosition]);
 
-function CarouselGallery ({data} : GalleryProps) {
-  const itemList = data.map((item) => <CarouselItem itemData={item} key={item._id} />);
   return (
-    <div 
-      // autoPlay 
-      // showIndicators={false} 
-      // dynamicHeight       
-      // centerSlidePercentage={100}
-      // centerMode
-      // showArrows={false}
-      // showStatus={false}
-    >
-        {itemList}
+    <div className={styles.pages}>
+      {
+        data.map((value, index) => (
+          <div onClick={onItemClick} className={index == currentPosition ? `${styles.page} ${styles.active}`: `${styles.page}`} key={index}>
+            {index == currentPosition && <GalleryItem itemData={value} sizeNpos={sizeNpos} />}
+          </div>
+        ))
+      }
+      <div className={styles.footer}>
+        {data.length > 1 && <AccountInfo itemData={data[currentPosition]} onClickSettingButton={onToggleSystemBar}/>}
+        {toggleSystembar && <SystemBar />}
+      </div>
     </div>);
 }
 

@@ -1,0 +1,30 @@
+.pages {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  transition-duration: 1s ease;  
+}
+
+.page img {
+  width: inherit;
+  height: inherit;
+}
+  
+.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}

@@ -1,9 +1,6 @@
 .wrapper {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-items: center;
 }
 
 .loading {
@@ -11,4 +8,60 @@
   justify-self: center;
   color: white;
   font-size: 26px;
+}
+
+.userinfo {  
+  color: white;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: space-evenlys;
+  margin: 20px;  
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.67);
+  padding: 0 20px;
+}
+
+.userinfo .body {        
+  text-align: left;
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.userinfo .displayName{
+  font-size: 34px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.userinfo .username {  
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.userinfo .grow {
+  flex-grow: 1;
+}
+
+.userinfo .badge {
+  background-color: white;
+  color: #06B5DD;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 16px;  
+}
+
+.userinfo .ntf_token {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.userinfo .settingBtn {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

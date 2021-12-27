@@ -6,14 +6,14 @@ import { RootState } from 'store';
 type FrameSettingType = {
   frameId?: string,
   transition?: 'glitch' | 'television' | '3dcubes',
-  sizeAndpos?: 'auto' | 'cover' | 'contain' | 'none',
+  sizeAndpos?: 'cover' | 'contain' | 'none',
   background?: string,
   playDuration? : number
 };
 
 const initialState: FrameSettingType = {
-  transition: '3dcubes',
-  sizeAndpos: 'contain',
+  // transition: '3dcubes',
+  sizeAndpos: 'cover',
   background: 'black',
   playDuration: 10
 };

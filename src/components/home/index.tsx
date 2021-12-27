@@ -13,21 +13,21 @@ import styles from './style.module.css';
 
 function Home() {
   const navigate = useNavigate();  
-  const { token, resetFrame } = useContext(AuthContext);
+  const { token, resetFrame } = useContext(AuthContext);  
   const { frameSetting, setFrameSetting } = useFrameSetting();
-  const { playlist, setAssets } = usePlaylist();
+  const { playlist, setAssets } = usePlaylist(); 
   
   const loadFrameSetting = async () => {
     const { success, errorMessage, data } = await getFrameSetting();
     if (success) {
-      const newSetting = {
-        frameId: data.frameId,
-        sizeAndpos: data.SizeAndPosition,
-        playDuration: data.playDuration,
-        transition: data.transition,
-        background: data.background
-      };      
-      setFrameSetting(newSetting);
+      // const newSetting = {
+      //   frameId: data.frameId,
+      //   sizeAndpos: data.SizeAndPosition,
+      //   playDuration: data.playDuration,
+      //   transition: data.transition,
+      //   background: data.background
+      // };      
+      // setFrameSetting(newSetting);
     } else {      
       resetFrame(() => {
         navigate('/auth');
@@ -36,7 +36,7 @@ function Home() {
   };
 
   const loadCollectionData = async () => {
-    const { success, data } = await getUserCollection(0, 5);
+    const { success, data } = await getUserCollection(0, 10);
     if (success) {      
       setAssets(data);
     }
@@ -45,7 +45,7 @@ function Home() {
   useEffect(() => {
     if (token) setAuthToken(token);
     (async () => {
-      // await loadFrameSetting();
+      await loadFrameSetting();
       await loadCollectionData();
     })();
   }, []);
@@ -56,7 +56,7 @@ function Home() {
         frameSetting.transition == 'glitch' ? <GlitchGallery sizeNpos={frameSetting.sizeAndpos!} duration={frameSetting.playDuration!}  data={playlist.assets} /> :
         frameSetting.transition == 'television' ? <TelevisionGallery sizeNpos={frameSetting.sizeAndpos!} duration={frameSetting.playDuration!}  data={playlist.assets} /> :
         <CarouselGallery sizeNpos={frameSetting.sizeAndpos!} duration={frameSetting.playDuration!} data={playlist.assets}/>
-      }      
+      }
     </div>
   );
 }

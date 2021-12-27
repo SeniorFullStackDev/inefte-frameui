@@ -2,13 +2,13 @@ import { ReactComponent as WifiIcon } from 'assets/wifi.svg';
 import { ReactComponent as BatteryIcon } from 'assets/battery.svg';
 import { ReactComponent as LinkIcon } from 'assets/link.svg';
 import styles from './style.module.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from 'auth';
 
-const statusBar = () => {
-	const [ wifiStatus, setWifiStatus ] = useState(false);
-	const [ batteryStatus, setBatterStatus ] = useState(false);
-	const [ linked, setLinked ] = useState(false);
-
+const SystemBar = () => {
+	const { token } = useContext(AuthContext);
+	const [ wifiStatus ] = useState(false);
+	const [ batteryStatus ] = useState(false);	
 	const [ clock, setClock ] = useState('');
 
 	const updateTime = () => {
@@ -35,7 +35,7 @@ const statusBar = () => {
 			<div className={styles.buttons}>
 				<a className={`${styles.button} ${wifiStatus ? styles.selected : ''}`}><WifiIcon /></a>
 				<a className={`${styles.button} ${batteryStatus ? styles.selected : ''}`}><BatteryIcon /></a>
-				<a className={`${styles.button} ${linked ? styles.selected : ''}`}><LinkIcon /></a>
+				<a className={`${styles.button} ${token ? styles.selected : ''}`}><LinkIcon /></a>
 			</div>
 			<div className={styles.clock}>
 				<h1>{ clock }</h1>
@@ -45,4 +45,4 @@ const statusBar = () => {
 };
 
 
-export default statusBar;
+export default SystemBar;
