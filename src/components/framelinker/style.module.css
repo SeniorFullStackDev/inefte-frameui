@@ -72,3 +72,9 @@
     justify-content: center;
     color: rgb(216, 216, 216);
 }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}

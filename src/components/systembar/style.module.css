@@ -1,7 +1,6 @@
 .wrapper {    
-    display: block;
-    padding: 20px;
-    margin: 10px;
+    display: block;    
+    margin: 20px;
 }
 
 .body { 
@@ -45,3 +44,5 @@
     margin: 10px 20px;
     text-transform: uppercase;
 }
+
+

@@ -43,9 +43,9 @@ function CarouselGallery ({data, duration, sizeNpos} : GalleryProps) {
           </div>
         ))
       }
-      <div className={styles.footer}>
+      <div className={`${styles.footer} ${toggleSystembar ? styles.active : ''}`}>
         {data.length > 1 && <AccountInfo itemData={data[currentPosition]} onClickSettingButton={onToggleSystemBar}/>}
-        {toggleSystembar && <SystemBar />}
+        <SystemBar />
       </div>
     </div>);
 }

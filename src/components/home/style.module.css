@@ -14,19 +14,19 @@
   color: white;
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
-  align-items: center;
-  justify-content: space-evenlys;
+  align-items: center;  
   margin: 20px;  
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.67);
-  padding: 0 20px;
+  padding: 20px;
+  column-gap: 20px;
 }
 
 .userinfo .body {        
   text-align: left;
-  flex: 1;
-  padding: 20px;
+  flex: 1;  
   display: flex;
   flex-wrap: wrap;
+  justify-content: end;
 }
 
 .userinfo .displayName{

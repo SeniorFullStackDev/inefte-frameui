@@ -2,11 +2,11 @@ import styles from './style.module.css';
 import QRCode from 'qrcode.react';
 import { useContext, useEffect, useState } from 'react';
 import { generateFrameCode, getTokenFromCode } from 'api';
-import { Bounce } from 'react-awesome-reveal';
 import { delay } from 'utils/delay';
 import { ReactComponent as ResetSVG } from 'assets/reset.svg';
 import { AuthContext } from 'auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import SystemBar from 'components/systembar';
 
 
 function FrameLinker () {
@@ -83,26 +83,30 @@ function FrameLinker () {
 		}
 	}, []);
 
-	if (visible) {
-		return (
-			<Bounce className={styles.wrapper} duration={600}>
-				<div className={styles.dialog}>
-					<div className={styles.header}>
-						<h2>Link Your iNeFTe Frame to your Account</h2>
-						<p>Scan the QR code or enter the code into the iNeFTe web app to link your frame</p>
-					</div>
-					<div className={styles.body}>
-						<div className={styles.qrcode}>
-							<QRCode value={code} level={'H'} size={304} />
-							{ isExpired && <div className={styles.expired} onClick={onReset}><ResetSVG /></div> }
+	return (
+		<>
+			{ visible && (
+				<div className={styles.wrapper}>
+					<div className={styles.dialog}>
+						<div className={styles.header}>
+							<h2>Link Your iNeFTe Frame to your Account</h2>
+							<p>Scan the QR code or enter the code into the iNeFTe web app to link your frame</p>
 						</div>
-						<h1>{code}</h1>
+						<div className={styles.body}>
+							<div className={styles.qrcode}>
+								<QRCode value={code} level={'H'} size={304} />
+								{ isExpired && <div className={styles.expired} onClick={onReset}><ResetSVG /></div> }
+							</div>
+							<h1>{code}</h1>
+						</div>
 					</div>
 				</div>
-			</Bounce>
-		);
-	}
-	return <></>;
+			)}
+			<div className={styles.footer}>
+				<SystemBar />
+			</div>
+		</>
+	);
 }
 
 export default FrameLinker;
