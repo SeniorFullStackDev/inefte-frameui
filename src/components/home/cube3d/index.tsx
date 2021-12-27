@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './cube3d.module.css';
+import styles from './style.module.css';
 
 function CubeFace({ itemData, sizeNpos }: GalleryItemProps) {
   let url;

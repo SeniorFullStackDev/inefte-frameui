@@ -1,8 +1,5 @@
-import styles from './glitch.module.css';
+import styles from './style.module.css';
 
-type Props = {
-  data: any[]
-};
 
 function GlitchItem({ itemData }: { itemData: any }) {
   const type = itemData.userTokenType;

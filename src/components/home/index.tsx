@@ -7,7 +7,7 @@ import { useFrameSetting } from 'reducers/framesetting';
 import { usePlaylist } from 'reducers/playlist';
 import CarouselGallery from './carousel';
 import Cube3DGallery from './cube3d';
-import TelevisionGallery from './tv';
+import TelevisionGallery from './television';
 import GlitchGallery from './glitch';
 import styles from './style.module.css';
 

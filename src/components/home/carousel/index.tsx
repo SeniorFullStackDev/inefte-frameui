@@ -1,9 +1,9 @@
 import SystemBar from 'components/systembar';
 import { useEffect, useState } from 'react';
-import AccountInfo from './accountinfo';
+import AccountInfo from '../accountinfo';
 // import { useSwipeable } from 'react-swipeable';
-import styles from './carousel.module.css';
-import GalleryItem from './GalleryItem';
+import styles from './style.module.css';
+import GalleryItem from '../galleryitem';
 
 function CarouselGallery ({data, duration, sizeNpos} : GalleryProps) {  
   const [currentPosition, setCurrentPosition] = useState(0);
